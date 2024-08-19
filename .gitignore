@@ -2,17 +2,17 @@
 *.DS_Store
 
 # Xcode
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-*.xcuserstate
-project.xcworkspace/
-xcuserdata/
+browse-recipes/*.pbxuser
+browse-recipes/*.mode1v3
+browse-recipes/*.mode2v3
+browse-recipes/*.perspectivev3
+browse-recipes/*.xcuserstate
+browse-recipes/project.xcworkspace/
+browse-recipes/xcuserdata/
 
 # Generated files
-*.o
-*.pyc
+browse-recipes/*.o
+browse-recipes/*.pyc
 
 
 #Python modules
