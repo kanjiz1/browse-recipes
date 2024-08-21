@@ -35,7 +35,8 @@ struct MealDetails: Codable {
         for (ingredientKey, measureKey) in zip(IngredientKeys.allCases, MeasureKeys.allCases) {
             if let ingredient = mealDetails[ingredientKey.rawValue],
                let measure = mealDetails[measureKey.rawValue],
-               !ingredient.isEmpty, !measure.isEmpty {
+               !ingredient.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+               !measure.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 ingredients.append(.init(ingredient: ingredient, measure: measure))
             }
         }
@@ -96,5 +97,9 @@ struct MealDetails: Codable {
         case measure18 = "strMeasure18"
         case measure19 = "strMeasure19"
         case measure20 = "strMeasure20"
+    }
+    
+    init(details: [[String : String?]]?) {
+        self.details = details
     }
 }

@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class MealsService {
+protocol MealServiceable {
+    func fetchMealList() async throws -> Meals
+    func fetchMealDetails(id: String) async throws -> MealDetails
+}
+
+final class MealsService: MealServiceable {
     enum NetworkError: Error {
         case invalidURL
         case invalidID

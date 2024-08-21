@@ -9,7 +9,11 @@ import Foundation
 @MainActor final class MealListViewModel: ObservableObject {
 
     @Published var meals: [Meals.Meal] = []
-    private let service = MealsService()
+    private let service: MealServiceable
+    
+    init(service: MealServiceable = MealsService()) {
+        self.service = service
+    }
     
     func fetchMealList() {
         Task {

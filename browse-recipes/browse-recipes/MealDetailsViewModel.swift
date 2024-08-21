@@ -9,11 +9,12 @@ import Foundation
 
 @MainActor final class MealDetailsViewModel: ObservableObject {
     @Published var details: MealDetails? = nil
-    private let service = MealsService()
+    private let service: MealServiceable
     private let id: String
     
-    init(id: String) {
+    init(id: String, service: MealServiceable = MealsService()) {
         self.id = id
+        self.service = service
     }
     
     func fetchMealDetails() {
